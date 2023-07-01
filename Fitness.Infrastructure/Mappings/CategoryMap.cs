@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Fitness.Infrastructure.Mappings
 {
-    public class CategoryMap : IEntityTypeConfiguration<Category>
+    public class FoodCategoryMap : IEntityTypeConfiguration<FoodCategory>
     {
-        public void Configure(EntityTypeBuilder<Category> builder)
+        public void Configure(EntityTypeBuilder<FoodCategory> builder)
         {
-            builder.ToTable("Category");
+            builder.ToTable("FoodCategory");
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Uuid)

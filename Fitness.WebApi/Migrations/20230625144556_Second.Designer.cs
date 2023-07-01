@@ -3,6 +3,7 @@ using System;
 using Fitness.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fitness.WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230625144556_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,6 +37,9 @@ namespace Fitness.WebApi.Migrations
                     b.Property<sbyte>("Enable")
                         .HasColumnType("tinyint");
 
+                    b.Property<int?>("FoodCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
@@ -45,6 +51,8 @@ namespace Fitness.WebApi.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("FoodCategoryId");
 
                     b.ToTable("Food", (string)null);
                 });
@@ -77,10 +85,14 @@ namespace Fitness.WebApi.Migrations
             modelBuilder.Entity("Fitness.Infrastructure.Entities.Food", b =>
                 {
                     b.HasOne("Fitness.Infrastructure.Entities.FoodCategory", "Category")
-                        .WithMany("Foods")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.HasOne("Fitness.Infrastructure.Entities.FoodCategory", null)
+                        .WithMany("Foods")
+                        .HasForeignKey("FoodCategoryId");
 
                     b.Navigation("Category");
                 });

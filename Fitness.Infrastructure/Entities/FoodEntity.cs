@@ -6,6 +6,6 @@ namespace Fitness.Infrastructure.Entities
 
         public int CategoryId { get; set; }
 
-        public Category Categoria { get; set; }
+        public FoodCategory Category { get; set; }
     }
 }

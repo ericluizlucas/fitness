@@ -11,11 +11,11 @@ namespace Fitness.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new FoodMap());
-            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new FoodCategoryMap());
         }
 
         public  DbSet<Food> Foods { get; set; }
 
-        public  DbSet<Category> Categories { get; set; }
+        public  DbSet<FoodCategory> Categories { get; set; }
     }
 }

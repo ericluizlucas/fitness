@@ -1,6 +1,6 @@
 namespace Fitness.Infrastructure.Entities
 {
-    public class Category : BaseEntity
+    public class FoodCategory : BaseEntity
     {
         public string? Name { get; set; } = null;
 

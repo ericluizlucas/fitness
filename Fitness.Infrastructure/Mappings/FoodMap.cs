@@ -27,10 +27,10 @@ namespace Fitness.Infrastructure.Mappings
                 .HasColumnType("varchar(100)")
                 .IsRequired();
 
-            builder.HasOne(p => p.Categoria)
-                .WithMany()
-                .HasForeignKey(p => p.CategoryId)
-                .OnDelete(DeleteBehavior.NoAction);
+            // builder.HasOne(p => p.Category)
+            //     .WithMany()
+            //     .HasForeignKey(p => p.CategoryId)
+            //     .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
