@@ -26,6 +26,9 @@ namespace Fitness.Infrastructure.Mappings
             builder.Property(p => p.Name)
                 .HasColumnType("varchar(100)")
                 .IsRequired();
+            
+            builder.HasMany(x => x.Foods).WithOne(x => x.Category);
+            builder.HasMany<Food>(y => y.Foods).WithOne(z => z.Category).HasForeignKey(z => z.CategoryId);
         }
     }
 }

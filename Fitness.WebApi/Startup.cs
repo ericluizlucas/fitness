@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Fitness.Service;
 using Fitness.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using Fitness.Infrastructure.Repositories;
+using Fitness.Infrastructure.Interfaces;
 
 namespace Fitness.WebAPI
 {
@@ -26,7 +28,10 @@ namespace Fitness.WebAPI
       {
         options.OutputFormatters.RemoveType<TextOutputFormatter>();
         options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
-      });
+      })
+      .AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+      );
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

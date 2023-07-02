@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <ItemGroup>
-    <ProjectReference Include="..\Fitness.Service\Fitness.Service.csproj" />
-    <ProjectReference Include="..\Fitness.Common\Fitness.Common.csproj" />
+    <ProjectReference Include="..\Fitness.Service\Fitness.Service.csproj"/>
+    <ProjectReference Include="..\Fitness.Common\Fitness.Common.csproj"/>
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.8"/>
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
 </Project>

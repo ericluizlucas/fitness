@@ -5,12 +5,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="8.0.33"/>
-    <PackageReference Include="Dapper" Version="2.0.143"/>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0"/>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0"/>
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0"/>
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8"/>
+    <PackageReference Include="MySql.Data" Version="8.0.33" />
+    <PackageReference Include="Dapper" Version="2.0.143" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fitness.Common\Fitness.Common.csproj" />
   </ItemGroup>
 </Project>

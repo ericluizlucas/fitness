@@ -12,6 +12,8 @@ namespace Fitness.Infrastructure.Context
         {
             modelBuilder.ApplyConfiguration(new FoodMap());
             modelBuilder.ApplyConfiguration(new FoodCategoryMap());
+            modelBuilder.Entity<FoodCategory>().HasMany(e => e.Foods).WithOne(e => e.Category)
+                .HasForeignKey("CategoryId").HasPrincipalKey(x => x.Id);
         }
 
         public  DbSet<Food> Foods { get; set; }

@@ -9,28 +9,29 @@ namespace Fitness.Infrastructure.Mappings
         public void Configure(EntityTypeBuilder<Food> builder)
         {
             builder.ToTable("Food");
-            builder.HasKey(p => p.Id);
+            builder.HasKey(f => f.Id);
 
-            builder.Property(p => p.Uuid)
+            builder.Property(f => f.Uuid)
                 .HasColumnType("varchar(60)")
                 .IsRequired();
             
-            builder.Property(p => p.Enable)
+            builder.Property(f => f.Enable)
                 .HasColumnType("tinyint")
                 .IsRequired();
             
-            builder.Property(p => p.CreatedAt)
+            builder.Property(f => f.CreatedAt)
                 .HasColumnType("datetime")
                 .IsRequired();
 
-            builder.Property(p => p.Name)
+            builder.Property(f => f.Name)
                 .HasColumnType("varchar(100)")
                 .IsRequired();
 
-            // builder.HasOne(p => p.Category)
-            //     .WithMany()
-            //     .HasForeignKey(p => p.CategoryId)
-            //     .OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(f => f.Category)
+                .WithMany(c => c.Foods)
+                .HasForeignKey(c => c.Id)
+                .HasPrincipalKey(f => f.Id)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

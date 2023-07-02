@@ -1,16 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace Fitness.Infrastructure.Entities
+namespace Fitness.Common.Models
 {
-    public abstract class BaseEntity
+    public class BaseModel
     {
-        // [Key]
         public int Id { get; set; }
-        public string Uuid { get; set; }
+        public string? Uuid { get; set; }
         public DateTime CreatedAt { get; set; }
         public bool Enable { get; set; }
 
-        public BaseEntity()
+        public BaseModel()
         {
             Uuid = Guid.NewGuid().ToString();
             CreatedAt = DateTime.Now;
